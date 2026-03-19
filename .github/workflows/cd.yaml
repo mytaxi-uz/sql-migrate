@@ -15,7 +15,7 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Prepare tag name from Release Tag
         if: ${{ startsWith(github.ref, 'refs/tags/v') }}
@@ -50,7 +50,7 @@ jobs:
 
       - name: Build image
         id: build
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
